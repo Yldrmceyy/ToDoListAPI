@@ -45,9 +45,9 @@ mvn clean install
 ``application.properties`` dosyasındaki PostgreSQL bağlantı bilgilerini düzenleyin:
 
 ```bash
-spring.datasource.url=jdbc:postgresql://localhost:5432/todo
-spring.datasource.username=your_username
-spring.datasource.password=your_password
+spring.datasource.url=jdbc:postgresql://localhost:5432/ToDoList
+spring.datasource.username=postgres
+spring.datasource.password=postgres
 spring.jpa.hibernate.ddl-auto=update
 ````
 ### 4. Uygulamayı Başlatın
