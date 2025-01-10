@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ITodoService {
     List<TodoDto> getAllTodos();
+    TodoDto getTodoById(Long id);
     TodoDto createTodo(TodoDto todoDto);
     TodoDto updateTodo(Long id, TodoDto todoDto);
     void deleteTodoById(Long id);
