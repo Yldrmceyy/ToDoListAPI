@@ -40,6 +40,17 @@ public class TodoServisImpl implements ITodoService {
     }
 
     @Override
+    public TodoDto getTodoById(Long id) {
+        // Eğer ID ile Todo bulunamazsa, BaseException fırlat
+        Todo todo = todoRepository.findById(id)
+                .orElseThrow(() -> new BaseException(new ErrorMessage(
+                        MessageType.NO_RECORD_EXIST,
+                        "Kayıt bulunamadı: ID " + id
+                )));
+        return modelMapper.map(todo, TodoDto.class); // Todo nesnesini DTO'ya dönüştür ve döndür
+    }
+
+    @Override
     public TodoDto createTodo(TodoDto todoDto) {
         // Aynı başlığa sahip bir Todo kontrolü
         if (todoRepository.existsByTitle(todoDto.getTitle())) {
