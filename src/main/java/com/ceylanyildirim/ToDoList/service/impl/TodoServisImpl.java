@@ -1,6 +1,7 @@
 package com.ceylanyildirim.ToDoList.service.impl;
 
 import com.ceylanyildirim.ToDoList.dto.TodoDto;
+import com.ceylanyildirim.ToDoList.entity.Todo;
 import com.ceylanyildirim.ToDoList.repository.TodoRepository;
 import com.ceylanyildirim.ToDoList.service.ITodoService;
 import org.modelmapper.ModelMapper;
@@ -31,7 +32,9 @@ public class TodoServisImpl implements ITodoService {
 
     @Override
     public TodoDto createTodo(TodoDto todoDto) {
-        return null;
+        Todo todo= modelMapper.map(todoDto, Todo.class);
+        Todo savedTodo= todoRepository.save(todo);
+        return modelMapper.map(savedTodo, TodoDto.class);
     }
 
     @Override
