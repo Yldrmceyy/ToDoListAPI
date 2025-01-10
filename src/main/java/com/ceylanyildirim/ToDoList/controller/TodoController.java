@@ -25,6 +25,12 @@ public class TodoController {
         return ResponseEntity.ok(todos); // 200 OK
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<TodoDto> getTodoById(@PathVariable Long id) {
+        TodoDto todo = todoService.getTodoById(id);
+        return ResponseEntity.ok(todo); // 200 OK ve Todo verisini döndür
+    }
+
     @PostMapping
     public ResponseEntity<TodoDto> createTodo(@RequestBody @Valid TodoDto todoDto) {
         TodoDto createdTodo = todoService.createTodo(todoDto);
