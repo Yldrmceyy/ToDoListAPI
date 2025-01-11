@@ -9,9 +9,9 @@ import java.util.Date;
 @Setter
 public class Exception<E> {
 
-    private String hostName;
-    private  String path;
-    private Date createTime;
-    private E message;
+    private String hostName; // Hatanın meydana geldiği sunucu
+    private  String path;  // İstek yolu
+    private Date createTime; // Hata oluşum zamanı
+    private E message;  // Hata mesajı
 
 }
