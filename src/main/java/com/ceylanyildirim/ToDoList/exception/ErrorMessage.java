@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/*	Hata mesajlarının formatını ve detayını tanımlayan bir sınıftır.*/
 @Getter
 @Setter
 @NoArgsConstructor

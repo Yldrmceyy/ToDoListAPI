@@ -14,22 +14,26 @@ import java.util.Date;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    // * BaseException türündeki hataları yakalar ve  ApiError formatına çevirir ve kullanıcıya döner
+
     @ExceptionHandler(value = {BaseException.class})
     public ResponseEntity<ApiError> handleBaseException(BaseException exception, WebRequest request) {
 
         return ResponseEntity.badRequest().body(createApiError(exception.getMessage(), request));
     }
-//     * ApiError oluşturur ve hata detaylarını içerir.
+
+
+    // * Hata mesajı, path ve timestamp bilgilerini içeren bir ApiError nesnesi oluşturur.
     public <E> ApiError<E> createApiError(E message, WebRequest request) {
-        ApiError<E> apiError = new ApiError<>();
-        apiError.setStatus(HttpStatus.BAD_REQUEST.value());
+        ApiError<E> apiError = new ApiError<>();   // Hata bilgilerini içeren bir model
+        apiError.setStatus(HttpStatus.BAD_REQUEST.value());  // Hata durum kodu: 400
 
         Exception<E> exception = new Exception<>();
-        exception.setCreateTime(new Date());
-        exception.setPath(request.getDescription(false).substring(4));
-        exception.setMessage(message);
+        exception.setCreateTime(new Date());  // Hatanın oluştuğu zaman
+        exception.setPath(request.getDescription(false).substring(4)); // Hatanın oluştuğu path
+        exception.setMessage(message);  // Hata mesajı
 
-        apiError.setException(exception);
+        apiError.setException(exception); // ApiError içine hatayı ekler
 
 
         return apiError;

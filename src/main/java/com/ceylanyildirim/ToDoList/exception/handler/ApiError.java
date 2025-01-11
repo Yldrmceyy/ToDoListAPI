@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class ApiError<E> {
     private  Integer status; // HTTP durumu
-    private  Exception<E> exception; // Hata detayları
+    private  Exception<E> exception; // Hata detaylarını içeren bir generic yapı
 }
