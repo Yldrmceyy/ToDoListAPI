@@ -27,18 +27,6 @@ Bu proje, bir ToDo List uygulamasının backend tarafını geliştirmek için ol
 
 ---
 
-## API EndPoints
-
-| HTTP Metodu | Endpoint        | Açıklama                          | Girdi Parametreleri      |
-|-------------|-----------------|----------------------------------|-------------------------|
-| GET         | `/api/todos`    | Tüm görevleri listeleme           | Yok                     |
-| GET         | `/api/todos/{id}` | ID'ye göre görev getirme          | `id` (Path)             |
-| POST        | `/api/todos`    | Yeni görev oluşturma              | Gövde (JSON)            |
-| PUT         | `/api/todos/{id}` | Mevcut bir görevi güncelleme       | `id` (Path), Gövde      |
-| DELETE      | `/api/todos/{id}` | Görev silme                       | `id` (Path)             |
-
-## Proje Yapısı
-
 ## Kurulum
 
 ### 1. Projeyi Klonlayın
@@ -72,6 +60,15 @@ http://localhost:4444/swagger-ui/index.html
 ````
 ---
 
+## API EndPoints
+
+| HTTP Metodu | Endpoint        | Açıklama                          | Girdi Parametreleri      |
+|-------------|-----------------|----------------------------------|-------------------------|
+| GET         | `/api/todos`    | Tüm görevleri listeleme           | Yok                     |
+| GET         | `/api/todos/{id}` | ID'ye göre görev getirme          | `id` (Path)             |
+| POST        | `/api/todos`    | Yeni görev oluşturma              | Gövde (JSON)            |
+| PUT         | `/api/todos/{id}` | Mevcut bir görevi güncelleme       | `id` (Path), Gövde      |
+| DELETE      | `/api/todos/{id}` | Görev silme                       | `id` (Path)             |
 
 ### Swagger Ekran Görüntüleri
 ![SwaggerEkranGörüntüsü.png](SwaggerEkranG%C3%B6r%C3%BCnt%C3%BCs%C3%BC.png)
