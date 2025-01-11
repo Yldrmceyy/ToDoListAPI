@@ -13,6 +13,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+/**
+ * TodoServisImpl, ITodoService arayüzünü implement eden sınıftır.
+ * Görev yönetimiyle ilgili iş mantığını içerir.
+ */
+
 @Service
 public class TodoServisImpl implements ITodoService {
 

@@ -9,12 +9,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+ /** TodoController sınıfı, Todo API için gelen HTTP isteklerini karşılar.
+        * CRUD (Create, Read, Update, Delete) işlemlerini yönetir.
+        */
+
+
 @RestController
 @RequestMapping("/api/todos")
 public class TodoController {
 
     private final ITodoService todoService;
 
+     /**
+      * Sınıfın kurucu metodu, bağımlılık enjeksiyonu ile ITodoService'i alır.
+      */
     public TodoController(ITodoService todoService) {
         this.todoService = todoService;
     }
