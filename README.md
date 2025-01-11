@@ -6,12 +6,13 @@ Bu proje, bir ToDo List uygulamasının backend tarafını geliştirmek için ol
 
 ## Özellikler
 
-- Görev oluşturma, güncelleme, silme ve listeleme işlemleri
-- ID'ye göre görev getirme
-- Swagger UI ile API dokümantasyonu
-- Hata yönetimi için global exception handling
-- ModelMapper ile DTO dönüşümleri
-- PostgreSQL entegrasyonu
+## Özellikler
+
+- **CRUD İşlemleri**: Görev ekleme, listeleme, güncelleme ve silme işlemleri.
+- **Swagger UI Desteği**: API dokümantasyonu ve test edilebilirlik.
+- **Hata Yönetimi**: Global exception handling ile API güvenilirliği artırıldı.
+- **PostgreSQL Entegrasyonu**: Güvenilir ve ölçeklenebilir bir veritabanı.
+- **DTO Kullanımı**: Veri transferlerini optimize ederek güvenlik ve performansı artırır.
 
 ---
 
@@ -27,6 +28,18 @@ Bu proje, bir ToDo List uygulamasının backend tarafını geliştirmek için ol
 - **ModelMapper**
 
 ---
+
+## API EndPoints
+
+| HTTP Metodu | Endpoint        | Açıklama                          | Girdi Parametreleri      |
+|-------------|-----------------|----------------------------------|-------------------------|
+| GET         | `/api/todos`    | Tüm görevleri listeleme           | Yok                     |
+| GET         | `/api/todos/{id}` | ID'ye göre görev getirme          | `id` (Path)             |
+| POST        | `/api/todos`    | Yeni görev oluşturma              | Gövde (JSON)            |
+| PUT         | `/api/todos/{id}` | Mevcut bir görevi güncelleme       | `id` (Path), Gövde      |
+| DELETE      | `/api/todos/{id}` | Görev silme                       | `id` (Path)             |
+
+## Proje Yapısı
 
 ## Kurulum
 
@@ -54,8 +67,13 @@ spring.jpa.hibernate.ddl-auto=update
 ```bash
 mvn spring-boot:run
 ````
+### 5. Swagger Arayüzüne Erişin
 
+```bash
+http://localhost:4444/swagger-ui/index.html
+````
 ---
+
 
 ### Swagger Ekran Görüntüleri
 ![SwaggerEkranGörüntüsü.png](SwaggerEkranG%C3%B6r%C3%BCnt%C3%BCs%C3%BC.png)
