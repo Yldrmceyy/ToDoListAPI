@@ -15,11 +15,15 @@ public class ErrorMessage {
 
     private  String ofStatic;
 
-    public String prepareErrorMessage(){
+/**
+ * Hata mesajını yapılandırılmış bir formatta döndürür.
+ */
+
+ public String prepareErrorMessage(){
         StringBuilder builder =new StringBuilder();
         builder.append(messageType.getMessage());
         if(ofStatic!=null){
-            builder.append(" : " + ofStatic);
+            builder.append(" : " + ofStatic); // Ek bilgi varsa ekle
         }
         return  builder.toString();
     }
