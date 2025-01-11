@@ -57,3 +57,5 @@ mvn spring-boot:run
 
 ---
 
+### Swagger Ekran Görüntüleri
+![SwaggerEkranGörüntüsü.png](SwaggerEkranG%C3%B6r%C3%BCnt%C3%BCs%C3%BC.png)

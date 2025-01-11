@@ -7,9 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
- /** TodoController sınıfı, Todo API için gelen HTTP isteklerini karşılar.
+/** TodoController sınıfı, Todo API için gelen HTTP isteklerini karşılar.
         * CRUD (Create, Read, Update, Delete) işlemlerini yönetir.
         */
 
@@ -40,21 +42,31 @@ public class TodoController {
     }
 
     @PostMapping
-    public ResponseEntity<TodoDto> createTodo(@RequestBody @Valid TodoDto todoDto) {
+    public ResponseEntity<Map<String, String>> createTodo(@RequestBody @Valid TodoDto todoDto) {
         TodoDto createdTodo = todoService.createTodo(todoDto);
-        return new ResponseEntity<>(createdTodo, HttpStatus.CREATED); // 201 CREATED
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Todo successfully created!");
+        response.put("id", createdTodo.getId().toString());
+        return new ResponseEntity<>(response, HttpStatus.CREATED); // 201 CREATED
     }
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<TodoDto> updateTodo(@PathVariable Long id, @RequestBody TodoDto todoDto) {
+    public ResponseEntity<Map<String, String>> updateTodo(@PathVariable Long id, @RequestBody TodoDto todoDto) {
         TodoDto updatedTodo = todoService.updateTodo(id, todoDto);
-        return ResponseEntity.ok(updatedTodo); // 200 OK
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Todo successfully updated!");
+        response.put("id", updatedTodo.getId().toString());
+        return ResponseEntity.ok(response); // 200 OK
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTodoById(@PathVariable Long id) {
-        todoService.deleteTodoById(id);
-        return ResponseEntity.noContent().build(); // 204 NO CONTENT
-    }
-}
+     @DeleteMapping("/{id}")
+     public ResponseEntity<Map<String, String>> deleteTodoById(@PathVariable Long id) {
+         todoService.deleteTodoById(id);
+         Map<String, String> response = new HashMap<>();
+         response.put("message", "Todo successfully deleted!");
+         response.put("id", id.toString());
+         return ResponseEntity.ok(response);
+     }
+
+ }
