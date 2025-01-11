@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
 import java.util.Date;
+// * GlobalExceptionHandler, proje genelinde oluşan istisnaları yönetir.
+
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -17,7 +19,7 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.badRequest().body(createApiError(exception.getMessage(), request));
     }
-
+//     * ApiError oluşturur ve hata detaylarını içerir.
     public <E> ApiError<E> createApiError(E message, WebRequest request) {
         ApiError<E> apiError = new ApiError<>();
         apiError.setStatus(HttpStatus.BAD_REQUEST.value());
