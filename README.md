@@ -6,8 +6,6 @@ Bu proje, bir ToDo List uygulamasının backend tarafını geliştirmek için ol
 
 ## Özellikler
 
-## Özellikler
-
 - **CRUD İşlemleri**: Görev ekleme, listeleme, güncelleme ve silme işlemleri.
 - **Swagger UI Desteği**: API dokümantasyonu ve test edilebilirlik.
 - **Hata Yönetimi**: Global exception handling ile API güvenilirliği artırıldı.
